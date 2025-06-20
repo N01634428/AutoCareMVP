@@ -1,3 +1,3 @@
 # AutoCareMVP
 
-This is my Passion project AutoCare. which is basically a car servicing website where customer can book their appointment, manage appointment, edit and delete appointment. 
+AutoCare is a passion project — a full-featured car servicing web application that allows customers to book, manage, edit, and delete their service appointments easily. It’s designed to streamline the car maintenance booking process with a simple, user-friendly interface.
