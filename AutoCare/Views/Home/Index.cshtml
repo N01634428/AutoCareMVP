@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "AutoCare - Home";
+}
+
+<h1>Welcome to AutoCare</h1>
+<p>Your trusted car maintenance service.</p>
+
+<h2>Our Services</h2>
+<ul id="services-list"></ul>
+
+<a href="@Url.Action("BookAppointment", "Home")">Book an Appointment</a>
+<a href="@Url.Action("ManageBooking", "Home")">Manage Appointments</a>
+
+
+
+
+
+@section Scripts {
+    <script>
+        fetch('/api/services')
+            .then(res => res.json())
+            .then(services => {
+                const ul = document.getElementById('services-list');
+                services.forEach(s => {
+                    let li = document.createElement('li');
+                    li.textContent = `${s.name} - ${s.description}`;
+                    ul.appendChild(li);
+                });
+            });
+    </script>
+}

@@ -1,0 +1,20 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = "Delete Appointment";
+}
+
+<h2>Delete Appointment</h2>
+
+<p>Are you sure you want to delete this appointment?</p>
+
+<div>
+    <strong>Name:</strong> @Model.CustomerName <br />
+    <strong>Service:</strong> @Model.ServiceName <br />
+    <strong>Date & Time:</strong> @Model.PreferredDateTime.ToString("g") <br />
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Yes, Delete</button>
+    <a asp-action="ManageBooking">Cancel</a>
+</form>

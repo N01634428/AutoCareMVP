@@ -1,0 +1,51 @@
+﻿@model Appointment
+@{
+    ViewData["Title"] = "Edit Appointment";
+}
+
+<h2>Edit Appointment</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Same fields as BookAppointment.cshtml -->
+    <label>Name</label><br />
+    <input asp-for="CustomerName" /><br />
+    <span asp-validation-for="CustomerName" class="text-danger"></span>
+
+    <label>Phone</label><br />
+    <input asp-for="Phone" /><br />
+    <span asp-validation-for="Phone" class="text-danger"></span>
+
+    <label>Email</label><br />
+    <input asp-for="Email" /><br />
+    <span asp-validation-for="Email" class="text-danger"></span>
+
+    <label>Vehicle Make</label><br />
+    <input asp-for="VehicleMake" /><br />
+    <span asp-validation-for="VehicleMake" class="text-danger"></span>
+
+    <label>Vehicle Model</label><br />
+    <input asp-for="VehicleModel" /><br />
+    <span asp-validation-for="VehicleModel" class="text-danger"></span>
+
+    <label>Vehicle Year</label><br />
+    <input asp-for="VehicleYear" type="number" /><br />
+    <span asp-validation-for="VehicleYear" class="text-danger"></span>
+
+    <label>Service Type</label><br />
+    <input asp-for="ServiceName" /><br />
+    <span asp-validation-for="ServiceName" class="text-danger"></span>
+
+    <label>Preferred Date & Time</label><br />
+    <input asp-for="PreferredDateTime" type="datetime-local" /><br />
+    <span asp-validation-for="PreferredDateTime" class="text-danger"></span>
+
+    <button type="submit">Save</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

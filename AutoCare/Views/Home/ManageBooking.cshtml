@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Appointment>
+@{
+    ViewData["Title"] = "Manage Bookings";
+}
+
+<h2>Manage Bookings</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Service</th>
+            <th>Date & Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appt in Model)
+        {
+            <tr>
+                <td>@appt.CustomerName</td>
+                <td>@appt.Phone</td>
+                <td>@appt.ServiceName</td>
+                <td>@appt.PreferredDateTime.ToString("g")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@appt.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@appt.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="BookAppointment">Book New Appointment</a>
